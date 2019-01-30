@@ -1,0 +1,9 @@
+.article {
+  width: 80vw;
+  max-width: 900px;
+  margin: auto;
+}
+
+.article :not(h1) {
+  column-count: 2;
+}

@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+}
+
+.container li {
+  flex: 1 1 50%;
+  margin: 0;
+}
+
+.container li * {
+  vertical-align: middle;
+}
+
+.container li div {
+  display: inline-block;
+}
+
+.container li div span {
+  display: block;
+}
+
+.icon {
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+}

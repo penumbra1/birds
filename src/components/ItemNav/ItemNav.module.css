@@ -1,0 +1,36 @@
+.nav {
+  margin: 0;
+  width: auto;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  list-style-type: none;
+  /* position: fixed; */
+  /* top: 30%; */
+  /* width: fit-content; */
+  align-self: center;
+  /* padding: 1rem; */
+  overflow: hidden;
+}
+
+.nav li {
+  padding: 1rem;
+  margin: 0;
+}
+
+.link {
+  composes: link from '../SVGLink/SVGLink.module.css';
+}
+
+.link svg {
+  fill: var(--pink);
+}
+
+.link:hover svg {
+  fill: var(--grey);
+}
+
+.activeLink svg,
+.activeLink:hover svg {
+  fill: var(--deep);
+}
