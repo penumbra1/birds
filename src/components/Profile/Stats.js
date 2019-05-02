@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Icon from '../../icons/stat.svg'
+import Icon from '../../icons/silhouette.svg'
 
 import './Stats.module.css'
 
