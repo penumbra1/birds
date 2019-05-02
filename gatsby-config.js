@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Птицы Перми',
+    title: 'Птицы Евразии',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `./src/styles/typography.js`,
+        pathToConfigModule: `src/styles/typography.js`,
       },
     },
     'gatsby-transformer-remark',
