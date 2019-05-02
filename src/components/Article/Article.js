@@ -1,19 +1,13 @@
 import React from 'react'
 import posed from 'react-pose'
 
+import { revealTextPoses } from '../poses'
+
 import './Article.module.css'
 
 const Element = type =>
   posed[type]({
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 400,
-        ease: 'easeOut',
-      },
-    },
-    exit: { y: '-10%', opacity: 0 },
+    ...revealTextPoses,
   })
 
 const ArticleComponent = posed.article({
@@ -25,8 +19,8 @@ const ArticleComponent = posed.article({
   },
 })
 
-const Article = ({ children }) => (
-  <ArticleComponent styleName="article">
+const Article = ({ children, ...props }) => (
+  <ArticleComponent styleName="article" {...props}>
     {children.map((child, index) => {
       const Item = Element(child.type)
       return <Item key={index}>{child.props.children}</Item>

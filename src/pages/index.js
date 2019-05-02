@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import { PoseGroup } from 'react-pose'
 import Article from '../components/Article/Article'
 import SVGLink from '../components/SVGLink/SVGLink'
-import Fringe from '../components/Fringe/Fringe'
 
 const IndexPage = ({ data }) => (
-  <>
-    <Article>
+  <PoseGroup animateOnMount>
+    <Article key="text">
       <h1>{data.site.siteMetadata.title}</h1>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi est
@@ -20,20 +20,18 @@ const IndexPage = ({ data }) => (
     <SVGLink
       to={data.allMarkdownRemark.edges[0].node.fields.slug}
       src="next.svg"
-      initialPose="above"
+      key="next"
       config={{
-        above: { y: '-50%', opacity: 0 },
         enter: {
           y: '0%',
           opacity: 1,
-          transition: { type: 'spring', stiffness: 180, damping: 8 },
-          delay: 2000,
+          transition: { type: 'spring', stiffness: 250, damping: 8 },
+          delay: 1000,
         },
-        exit: { opacity: 0 },
+        exit: { y: '-50%', opacity: 0 },
       }}
     />
-    {/* <Fringe initialPose="below" /> */}
-  </>
+  </PoseGroup>
 )
 
 export const pageQuery = graphql`

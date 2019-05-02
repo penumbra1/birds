@@ -1,45 +1,34 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { Link } from 'gatsby'
 
-import Fringe from '../Fringe/Fringe'
+import { revealTextPoses } from '../poses'
 
 import './Header.module.css'
 
-const Nav = posed.nav({
-  enter: {
-    staggerChildren: 300,
-  },
-})
+const Nav = posed.nav(revealTextPoses)
 
-const NavItem = React.forwardRef(({ to, children }, ref) => (
-  <Link innerRef={ref} to={to}>
+const NavItem = forwardRef(({ to, children }, ref) => (
+  <Link ref={ref} to={to}>
     {children}
   </Link>
 ))
 
-const NavLink = posed(NavItem)({
+const HeaderTitle = posed.h1({
   enter: { y: '0' },
   exit: { y: '-200%' },
 })
 
-const HeaderTitle = posed.h1()
-
-const Header = ({ siteTitle, path }) => (
+const Header = ({ title, showTitle }) => (
   <header styleName="header">
     <PoseGroup animateOnMount>
       <Nav key="headerNav">
-        <NavLink to="/species/">Все птицы</NavLink>
-        <NavLink to="/about">О проекте</NavLink>
+        <NavItem to="/species/">Все птицы</NavItem>
+        <NavItem to="/about">О проекте</NavItem>
       </Nav>
-
-      {/* {path !== '/' && (
-        <Fringe key="headerFringe" styleName="fringe" initialPose="above" />
-      )} */}
-
-      {path !== '/' && (
+      {showTitle && (
         <HeaderTitle key="headerTitle">
-          <Link to="/">{siteTitle}</Link>
+          <Link to="/">{title}</Link>
         </HeaderTitle>
       )}
     </PoseGroup>

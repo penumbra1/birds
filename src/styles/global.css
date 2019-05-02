@@ -23,18 +23,6 @@ a {
   text-decoration: none;
 }
 
-.main {
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.main h1 {
-  margin-top: 0;
-}
-
 h1 {
   text-align: center;
 }

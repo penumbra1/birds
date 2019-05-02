@@ -4,20 +4,19 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import posed from 'react-pose'
 
-import styles from './Fringe.module.css'
+import './Fringe.module.css'
 
 const FringeContainer = posed.div({
-  below: { y: '100%' },
-  above: { y: '-100%' },
+  preEnter: { top: '0' },
   enter: {
-    y: 0,
-    transition: { duration: 800 },
+    top: '0',
+    transition: { duration: 500, ease: 'circOut' },
     delay: 1000,
   },
-  exit: { y: '-130vh', transition: { duration: 2000 } },
+  exit: { top: '-130vh', transition: { duration: 800, ease: 'circIn' } },
 })
 
-const Fringe = ({ className, ...props }) => (
+const Fringe = props => (
   <StaticQuery
     query={graphql`
       query FringeQuery {
@@ -31,7 +30,7 @@ const Fringe = ({ className, ...props }) => (
       }
     `}
     render={data => (
-      <FringeContainer className={className || styles.container} {...props}>
+      <FringeContainer {...props} styleName="container">
         <Img
           fluid={{
             ...data.file.childImageSharp.fluid,
@@ -40,7 +39,6 @@ const Fringe = ({ className, ...props }) => (
             }`,
           }}
           style={{
-            position: 'initial',
             minWidth: '1200px',
             maxWidth: '1920px',
           }}
