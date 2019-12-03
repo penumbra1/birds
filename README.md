@@ -4,6 +4,8 @@ All images and copy borrowed from various sources online (for purely noncommerci
 
 ## Tools
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/penumbra1/birds.svg)](https://greenkeeper.io/)
+
 - [Gatsby](https://www.gatsbyjs.org/) for markdown and [image](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/) magic
 - [CSS modules](https://glenmaddern.com/articles/css-modules) via [Gatsby-plugin-react-css-modules](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-css-modules) (set up in gatsby-node as a workaround for Babel 7: see https://github.com/gatsbyjs/gatsby/issues/8317)
 - Typography.js for fonts
